@@ -4,33 +4,47 @@ body {
   background-color: #f2f2f2;
   color: black;
   margin: 0 auto;
-  font: normal 14px/1.5 Tahoma,"Lucida Grande",Verdana,"Microsoft Yahei",STXihei,hei;
+  font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
   overflow-x: hidden;
   /* 清除点击高亮 */
   -webkit-tap-highlight-color: transparent;
 }
+
 div {
   box-sizing: border-box;
 }
+
 a {
   text-decoration: none;
   color: #222;
 }
+
 ul {
   margin: 0;
   padding: 0;
 }
-ul li {
+
+li {
   list-style: none;
 }
-
+/* 返回顶部模块 */
+.goBack {
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  right: 20px;
+  width: 38px;
+  height: 38px;
+  background: url(../images/back.png) no-repeat;
+  background-size: 38px 38px;
+}
 /* 搜索模块 */
 .search-index {
   display: flex;
   position: fixed;
   top: 0;
   left: 50%;
-  transform: translate(-50%,0);
+  transform: translate(-50%, 0);
   width: 100%;
   min-width: 320px;
   max-width: 540px;
@@ -38,7 +52,9 @@ ul li {
   background-color: #f6f6f6;
   border-top: 1px solid #ccc;
   border-bottom: 1px solid #ccc;
+  z-index: 999;
 }
+
 .search {
   position: relative;
   flex: 1;
@@ -50,8 +66,9 @@ ul li {
   border-radius: 5px;
   margin: 8px 10px;
   padding-left: 25px;
-  box-shadow: 1px 2px 4px rgba(0,0,0,.3);
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, .3);
 }
+
 .search::before {
   content: "";
   position: absolute;
@@ -62,6 +79,7 @@ ul li {
   background: url(../images/sprite.png) no-repeat -59px -279px;
   background-size: 104px;
 }
+
 .user {
   width: 44px;
   height: 44px;
@@ -69,6 +87,7 @@ ul li {
   text-align: center;
   color: #2eaae0;
 }
+
 .user::before {
   display: block;
   width: 23px;
@@ -81,11 +100,46 @@ ul li {
 
 /* 焦点图 */
 .focus {
+  position: relative;
   margin-top: 44px;
   height: 78px;
+  overflow: hidden;
 }
-.focus img {
+
+.focus ul {
+  width: 500%;
+  overflow: hidden;
+  margin-left: -100%;
+}
+
+.focus ul li {
+  float: left;
+  width: 20%;
+}
+
+.focus ul li img {
   width: 100%;
+}
+
+.focus ol {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  bottom: 10px;
+  right: 5px;
+}
+
+.focus ol li {
+  float: left;
+  width: 5px;
+  height: 5px;
+  border-radius: 2px;
+  background-color: #fff;
+  margin: 0 3px;
+  transition: all .2s;
+}
+.current {
+  width: 10px !important;
 }
 
 /* 头导航 */
@@ -96,15 +150,18 @@ ul li {
   border-radius: 8px;
   margin: 3px 4px;
 }
+
 .local-nav li {
   flex: 1;
 }
+
 .local-nav a {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 12px;
 }
+
 .local-nav li span[class^='local-nav-icon'] {
   width: 32px;
   height: 32px;
@@ -112,15 +169,19 @@ ul li {
   background-size: 32px;
   margin-top: 8px;
 }
+
 .local-nav li a .local-nav-icon2 {
   background-position: 0 -32px;
 }
+
 .local-nav li a .local-nav-icon3 {
   background-position: 0 -64px;
 }
+
 .local-nav li a .local-nav-icon4 {
   background-position: 0 -96px;
 }
+
 .local-nav li a .local-nav-icon5 {
   background-position: 0 -128px;
 }
@@ -131,40 +192,49 @@ nav {
   border-radius: 8px;
   overflow: hidden;
 }
+
 .nav-com {
   display: flex;
   height: 88px;
   background-color: pink;
 }
+
 .nav-com:nth-child(1) {
-  background: -webkit-linear-gradient(left,#FA5A55,#FA994D);
+  background: -webkit-linear-gradient(left, #FA5A55, #FA994D);
 }
+
 .nav-com:nth-child(2) {
   margin: 3px 0;
-  background: -webkit-linear-gradient(left,#4B90ED,#53BCED);
+  background: -webkit-linear-gradient(left, #4B90ED, #53BCED);
 }
+
 .nav-com:nth-child(3) {
-  background: -webkit-linear-gradient(left,#34C2A9,#6CD559);
+  background: -webkit-linear-gradient(left, #34C2A9, #6CD559);
 }
+
 .nav-items {
   display: flex;
   flex: 1;
   flex-direction: column;
 }
+
 .nav-items:nth-child(-n+2) {
   border-right: 1px solid white;
 }
+
 .nav-items a {
   flex: 1;
   line-height: 44px;
   text-align: center;
   color: #fff;
   font-size: 14px;
-  text-shadow: 1px 1px rgba(0,0,0,.3);
+  text-shadow: 1px 1px rgba(0, 0, 0, .3);
 }
+
 .nav-items a:nth-child(1) {
   border-bottom: 1px solid white;
 }
+
 .nav-items:first-child a {
   border: 0;
   background: url(../images/hotel.png) no-repeat bottom center;
@@ -179,32 +249,38 @@ nav {
   border-radius: 8px;
   margin: 0 4px;
   padding: 5px 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
 }
+
 .subnav li {
   width: 20%;
   margin: 3px 0;
 }
+
 .subnav li a {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 12px;
 }
+
 .subnav span[class^="subnav-icon"] {
   width: 28px;
   height: 28px;
   background-color: pink;
   margin-top: 4px;
-  background: url(../images/subnav-bg.png) no-repeat 0 3px; 
+  background: url(../images/subnav-bg.png) no-repeat 0 3px;
   background-size: 28px;
 }
+
 .subnav li .subnav-icon2 {
   background-position: 3px -28px;
 }
+
 .subnav li .subnav-icon3 {
   background-position: 3px -62px;
 }
+
 .subnav li .subnav-icon5 {
   background-position: 1px -97px;
 }
@@ -215,11 +291,13 @@ nav {
   background-color: #fff;
   margin: 4px 4px;
 }
+
 .act-hd {
   overflow: hidden;
   height: 44px;
   border-bottom: 1px solid #000;
 }
+
 .act-hd h2 {
   float: left;
   text-indent: -999px;
@@ -230,6 +308,7 @@ nav {
   background-size: 79px;
   margin: 14px 0 0 20px;
 }
+
 .ad {
   float: left;
   width: 30px;
@@ -238,21 +317,23 @@ nav {
   color: #fff;
   font-size: 12px;
   font-style: normal;
-  background-color: rgba(0,0,0,.3);
+  background-color: rgba(0, 0, 0, .3);
   margin: 14px 3px;
   text-align: center;
   border-radius: 5px;
 }
+
 .act-hd a {
   position: relative;
   float: right;
   margin: 12px 10px;
   padding: 1px 20px 1px 10px;
-  background: -webkit-linear-gradient(left,#FF506C,#FF6BC6);
+  background: -webkit-linear-gradient(left, #FF506C, #FF6BC6);
   border-radius: 15px;
   color: #fff;
   font-size: 12px;
 }
+
 .act-hd a::after {
   position: absolute;
   top: 7px;
@@ -264,16 +345,20 @@ nav {
   border-right: 1px solid #fff;
   transform: rotate(45deg);
 }
+
 .row {
   display: flex;
 }
+
 .row a {
-  flex:1;
+  flex: 1;
   border-bottom: 1px solid #eee;
 }
+
 .row:first-child a {
   border-right: 1px solid #eee;
 }
+
 .row a img {
   width: 100%;
 }
